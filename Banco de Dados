@@ -1,12 +1,17 @@
-
 CREATE DATABASE my_pc_pokemon;
 USE my_pc_pokemon;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE box_pokemon (
     id_box INT AUTO_INCREMENT PRIMARY KEY,
     nome_box VARCHAR(50) NOT NULL    
-    )
-    
+);
+
 CREATE TABLE pokemons (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_box INT NOT NULL,
@@ -20,13 +25,4 @@ CREATE TABLE pokemons (
     sp_def INT NOT NULL,
     speed INT NOT NULL,
     FOREIGN KEY (id_box) REFERENCES box_pokemon(id_box)
-    );
-
-
-
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=senai2025
-DB_NAME=estoque
-PORT=5500
-    
+);
